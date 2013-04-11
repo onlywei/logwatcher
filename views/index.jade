@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .header
+    .logo= title
+    .button-container
+      each val, key in logs
+        button #{key}
+    .lock-container
+      button Scroll Lock
+  .logarea
+    .startmessage Please choose a log to watch using the buttons above.

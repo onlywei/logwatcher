@@ -1,0 +1,19 @@
+{
+  "name": "logwatcher",
+  "version": "0.0.1",
+  "description": "A simple server to view log files through websockets.",
+  "author": "Wei Wang <weiwang85@gmail.com",
+  "repository": "git://github.com/onlywei/logwatcher.git",
+  "main": "./lib/logwatcher",
+  "bin": { "logwatch": "./lib/server.js" },
+  "dependencies": {
+    "express": ">= 3.1.1",
+    "jade": "*",
+    "stylus": "*",
+    "ws": "*"
+  },
+  "engines": {
+    "node": ">= 0.10.3",
+    "npm": ">= 1.2.0"
+  }
+}
