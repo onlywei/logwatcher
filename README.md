@@ -18,9 +18,11 @@ Create a .logwatchrc file in your home directory. Then just run:
 Sample .logwatchrc file:
 
     {
+      "port": 4000,
       "logs": {
         "Name": "/home/user/path/to/file.log"
       }
     }
 
+Port of 4000 is default.
 The name is used for the button display in the browser.
