@@ -1,6 +1,6 @@
 {
   "name": "logwatcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple server to view log files through websockets.",
   "author": "Wei Wang <weiwang85@gmail.com",
   "repository": "git://github.com/onlywei/logwatcher.git",
