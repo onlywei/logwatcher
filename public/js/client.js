@@ -11,19 +11,26 @@ $('doc').ready(function () {
     $logarea.css('height', windowHeight - headerHeight - 20 + 'px');
   }
 
+  function clearLogs() {
+    $('.logarea .log-content').empty();
+  }
+
   fixHeight();
   $(window).resize(fixHeight);
 
-  $('.header .lock-container button').on('click', function (e) {
+  $('.header button#scrolllock').on('click', function (e) {
     scrollLock = !scrollLock;
     $(e.target).toggleClass('checked', scrollLock);
   });
+
+  $('.header button#clearbutton').on('click', clearLogs);
   
   $('.header .button-container').on('click', 'button', function (e) {
     var $button = $(e.target),
-      name = $button.html().replace(' ', '', 'g');
+      name = $button.html();
 
-    $('.logarea').empty();
+    clearLogs();
+    $('.logarea .startmessage').text('Now watching ' + name);
     
     if (openSocket) {
       openSocket.close();
@@ -32,6 +39,7 @@ $('doc').ready(function () {
     $('.header .button-container button').removeClass('selected');
     $button.addClass('selected');
 
+    name = name.replace(' ', '', 'g');
     openSocket = new WebSocket('ws://' + host + ':4000/logs/' + name);
 
     openSocket.onmessage = function (e) {
@@ -39,7 +47,7 @@ $('doc').ready(function () {
         $logarea = $('.logarea');
 
       $line.addClass('log-line').text(e.data);
-      $logarea.append($line);
+      $('.logarea .log-content').append($line);
 
       if (!scrollLock) {
         $logarea.scrollTop($logarea.prop('scrollHeight'));
