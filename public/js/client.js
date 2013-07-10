@@ -31,7 +31,7 @@ $('doc').ready(function () {
 
     clearLogs();
     $('.logarea .startmessage').text('Now watching ' + name);
-    
+
     if (openSocket) {
       openSocket.close();
     }
@@ -40,7 +40,8 @@ $('doc').ready(function () {
     $button.addClass('selected');
 
     name = name.replace(' ', '', 'g');
-    openSocket = new WebSocket('ws://' + host + ':4000/logs/' + name);
+    openSocket = new WebSocket('ws://' + host + ':'+ $('port').text() +
+        '/logs/' + name);
 
     openSocket.onmessage = function (e) {
       var $line = $(document.createElement('div')),
