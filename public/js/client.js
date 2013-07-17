@@ -40,7 +40,7 @@ $('doc').ready(function () {
     $button.addClass('selected');
 
     name = name.replace(' ', '', 'g');
-    openSocket = new WebSocket('ws://' + host + ':'+ $('port').text() +
+    openSocket = new WebSocket('ws://' + host + ':'+ $('#port').text() +
         '/logs/' + name);
 
     openSocket.onmessage = function (e) {

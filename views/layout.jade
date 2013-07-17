@@ -2,7 +2,6 @@ doctype 5
 html
   head
     title= title
-    port= port
     link(rel='stylesheet'
       href='http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -10,4 +9,5 @@ html
       src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js')
     script(src='js/client.js')
   body
+    div(style="display: none")#port= port
     block content
